@@ -31,3 +31,12 @@ function showWelcomeContainer(){
     $('#welcome').show();
     $('#welcomeText').html('Hello, ' + user.displayName);
 }
+
+$(".dropdown").on("hide.bs.dropdown", function (event) {
+    var text = $(event.relatedTarget).text(); // Get the text of the element
+    firebase.database().ref('Users/' + uid).set({
+        name: user.displayName,
+        email: user.email,
+        favDog: text
+    });
+});
