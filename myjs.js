@@ -6,7 +6,9 @@ function signIn(){
         var token = result.credential.accessToken;
         // The signed-in user info.
         var user = result.user;
-        console.log(user);
+        //getting User specific information
+        console.log(user.displayName);
+        
     }).catch(function (error) {
         // Handle Errors here.
         var errorCode = error.code;
