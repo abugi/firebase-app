@@ -12,6 +12,7 @@ function signIn(){
         var token = result.credential.accessToken;
         // The signed-in user info.
         user = result.user;
+        console.log(user);
         showWelcomeContainer();
 
     }).catch(function (error) {
