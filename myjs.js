@@ -8,6 +8,7 @@ function signIn(){
         var user = result.user;
         //getting User specific information
         console.log(user.displayName);
+        console.log(user.email);
 
     }).catch(function (error) {
         // Handle Errors here.
