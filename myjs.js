@@ -34,7 +34,7 @@ function showWelcomeContainer(){
 
 $(".dropdown").on("hide.bs.dropdown", function (event) {
     var text = $(event.relatedTarget).text(); // Get the text of the element
-    firebase.database().ref('Users/' + uid).set({
+    firebase.database().ref('Users/' + user.uid).set({
         name: user.displayName,
         email: user.email,
         favDog: text
