@@ -1,14 +1,18 @@
 var provider = new firebase.auth.GoogleAuthProvider();
+//make the user variable global
+var user;
+
+$(document).ready(function(){
+    $('#welcome').hide();
+});
 
 function signIn(){
     firebase.auth().signInWithPopup(provider).then(function (result) {
         // This gives you a Google Access Token. You can use it to access the Google API.
         var token = result.credential.accessToken;
         // The signed-in user info.
-        var user = result.user;
-        //getting User specific information
-        console.log(user.displayName);
-        console.log(user.email);
+        user = result.user;
+        showWelcomeContainer();
 
     }).catch(function (error) {
         // Handle Errors here.
@@ -20,4 +24,10 @@ function signIn(){
         var credential = error.credential;
         // ...
     });
+}
+
+function showWelcomeContainer(){
+    $('#login').hide();
+    $('welcome').show();
+    $('welcomeText').html('Hello, ' + user.displayName);
 }
