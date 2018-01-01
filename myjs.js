@@ -7,8 +7,8 @@ function signIn(){
         // The signed-in user info.
         var user = result.user;
         //getting User specific information
-        console.log(user.displayName);
-        
+        console.log(result);
+
     }).catch(function (error) {
         // Handle Errors here.
         var errorCode = error.code;
