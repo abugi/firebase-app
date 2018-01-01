@@ -37,6 +37,7 @@ $(".dropdown").on("hide.bs.dropdown", function (event) {
     firebase.database().ref('Users/' + user.uid).set({
         name: user.displayName,
         email: user.email,
-        favDog: text
+        favDog: text,
+        myLove: 'Teemah'
     });
 });
