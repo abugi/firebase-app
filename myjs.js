@@ -28,6 +28,6 @@ function signIn(){
 
 function showWelcomeContainer(){
     $('#login').hide();
-    $('welcome').show();
-    $('welcomeText').html('Hello, ' + user.displayName);
+    $('#welcome').show();
+    $('#welcomeText').html('Hello, ' + user.displayName);
 }
