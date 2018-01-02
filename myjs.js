@@ -71,11 +71,24 @@ function uploadFile(){
     // 1. 'state_changed' observer, called any time the state changes
     // 2. Error observer, called on failure
     // 3. Completion observer, called on successful completion
-    uploadTask.on('state_changed',  function () {
+    uploadTask.on('state_changed', function (snapshot) {
+        
+    }, function (error) {
+        console.log(error)
+    }, function () {
         // Handle successful uploads on complete
         // For instance, get the download URL: https://firebasestorage.googleapis.com/...
         var downloadURL = uploadTask.snapshot.downloadURL;
-
-        console.log(downloadURL);
+        //create a new tree in the database for posts
+        var postKey = firebase.database().ref('/Posts/').push.key;
+        var updates = {};
+        var postData = {
+            url: downloadURL,
+            caption: $('#imageCaption').val(),
+            userID: user.uid,
+            userName: user.displayName 
+        };
+        updates['/Posts/' + postKey] = postData;
+        firebase.database().ref().update(updates);
     });
 }
