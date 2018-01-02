@@ -71,12 +71,7 @@ function uploadFile(){
     // 1. 'state_changed' observer, called any time the state changes
     // 2. Error observer, called on failure
     // 3. Completion observer, called on successful completion
-    uploadTask.on('state_changed', function (snapshot) {
-        console.log(snapshot);
-        console.log('this is snapshot');
-    }, function (error) {
-        console.log(error)
-    }, function () {
+    uploadTask.on('state_changed',  function () {
         // Handle successful uploads on complete
         // For instance, get the download URL: https://firebasestorage.googleapis.com/...
         var downloadURL = uploadTask.snapshot.downloadURL;
