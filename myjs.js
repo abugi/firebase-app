@@ -72,7 +72,8 @@ function uploadFile(){
     // 2. Error observer, called on failure
     // 3. Completion observer, called on successful completion
     uploadTask.on('state_changed', function (snapshot) {
-        console.log(snapshot)
+        console.log(snapshot);
+        console.log('this is snapshot');
     }, function (error) {
         console.log(error)
     }, function () {
