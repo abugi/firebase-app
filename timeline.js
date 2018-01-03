@@ -16,9 +16,27 @@ function queryDatabase(token){
         var posts = snapshot.val();
         console.log(posts);
         var objKeys = Object.keys(posts);
+        var currentRow;
         for(var i = 0; i < objKeys.length; i++){
             var currentObject = posts[objKeys[i]]
             console.log(currentObject);
+
+            if(i % 3 == 0){
+                currentRow = document.createElement('div');
+                $(currentRow).addClass('row');
+                $('#contentHolder').append(currentRow);
+            }
+            var col = document.createElement('div');
+            $(col).addClass('col-lg-4');
+            var image = document.createElement('img');
+            image.src = currentObject.url;
+            $(image).addClass('contentImage');
+            var p = document.createElement('p');
+            $(p).html(currentObject.caption);
+            $(p).addClass('contentCaption');
+            $(col).append(image);
+            $(col).append(p);
+            $(currentRow).append(col);
         }
     });
 }
