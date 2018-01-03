@@ -74,7 +74,7 @@ function uploadFile(){
         // For instance, get the download URL: https://firebasestorage.googleapis.com/...
         var downloadURL = uploadTask.snapshot.downloadURL;
         //create a new tree in the database for posts
-        var postKey = firebase.database().ref().child('Posts').push().key;
+        var postKey = firebase.database().ref('/Posts/').push().key;
         var updates = {};
         var postData = {
             url: downloadURL,
