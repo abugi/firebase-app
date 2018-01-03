@@ -18,6 +18,7 @@ function queryDatabase(token){
         var objKeys = Object.keys(posts);
         for(var i = 0; i < objKeys.length; i++){
             var currentObject = posts[objKeys[i]]
+            console.log(currentObject);
         }
     });
 }
