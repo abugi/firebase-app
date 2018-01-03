@@ -1,4 +1,5 @@
 $(document).ready(function(){
+    alert('ready');
     firebase.auth().onAuthStateChanged(function (user) {
         if (user) {
             var user = firebase.auth().currentUser;
@@ -13,7 +14,7 @@ $(document).ready(function(){
 function queryDatabase(token){
     firebase.database().ref('/Posts/').once('value').then(function (snapshot) {
         var posts = snapshot.val();
-        var owner = snapshot.val().username
+        var owner = snapshot.val().userName
         console.log(posts, owner);
     });
 }
