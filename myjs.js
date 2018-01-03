@@ -58,12 +58,6 @@ function uploadFile(){
     // Create a root reference
     var storageRef = firebase.storage().ref('/images/' + fileName);
 
-    // // Create a reference to selected file
-    // var fileName = selectedFile.name;
-
-    // // Create a reference to 'images/filename'
-    // var fileRef = storageRef.child(fileName);
-
     //To upload the file
     var uploadTask = storageRef.put(selectedFile);
 
