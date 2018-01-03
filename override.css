@@ -14,3 +14,11 @@
 	position: fixed;
 	top: -1000px;
 }
+.contentImage{
+	width: 100%
+}
+.contentCaption{
+	width: 100%;
+	font-size: 1em;
+	text-align: center
+}
